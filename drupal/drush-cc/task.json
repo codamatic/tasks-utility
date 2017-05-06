@@ -1,0 +1,11 @@
+{
+  "id": "DrushCC",
+  "title": "Clear Drupal site caches",
+  "version": "0.0.1",
+  "description": "Clear Drupal site caches",
+  "keywords": [
+    "drupal",
+    "drush",
+    "cache"
+  ],
+}

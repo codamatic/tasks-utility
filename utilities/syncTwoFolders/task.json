@@ -1,0 +1,18 @@
+{
+  "name": "SyncTwoFolders",
+  "title": "Synchronise two folders"
+  "version": "0.0.1",
+  "description": "Synchronise two folders",
+  "scripts": {
+    "run": "sh copy"
+  },
+  "keywords": [
+    "sync",
+    "synchronise",
+    "copy",
+    "rsync",
+    "folders"
+    "files"
+    "filesystem"
+  ],
+}

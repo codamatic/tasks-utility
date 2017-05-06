@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="../../cm/components.js"></script>
+  <script src="../../cm/cm.js"></script>
+  <script src="../../cm/boot.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+<div id="app">
+  <div id="step-1" v-if="step == 1">
+    <h1>Synchronise two folders on your Mac.</h1>
+
+    <cm-folder-chooser id="dirFrom">Sync <strong>from</strong> this folder:</cm-folder-chooser>
+    <cm-folder-chooser id="dirTo">Sync <strong>to</strong> this folder:</cm-folder-chooser>
+
+    <cm-file-listing id="listFrom"></cm-file-listing>
+    <cm-file-listing id="listTo"></cm-file-listing>
+
+    <cm-switch>
+      <option title="Bi-directional"></option>
+      <option title="From left to right"></option>
+    </cm-switch>
+
+    <button v-on:click="runScript">Synchronise</button>
+  </div>
+
+  <div id="step-2" class="busy" v-if="step == 2">
+    <h2>Synchronising...</h2>
+    <cm-progressbar></cm-progressbar>
+    <button>Cancel</button>
+  </div>
+</div>
+
+
+
+<script>
+
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue.js!',
+    step: 1,
+  },
+  methods: {
+    didCancel: function() {
+      this.message = "cancaaaalled";
+    },
+
+    runScript: function() {
+      this.step ++;
+
+      cm.alert('Are you sure?', 'Cancel', 'Synchronise').continue(function() {
+        cm.runShell('local.rsync.sh', [fromDir, toDir, direction])
+      });
+    }
+  }
+})
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
