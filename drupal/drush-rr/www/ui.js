@@ -1,4 +1,0 @@
-{
-  "id" : "copy_folders",
-
-}
