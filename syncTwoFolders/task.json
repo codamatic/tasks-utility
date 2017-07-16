@@ -7,8 +7,8 @@
     "synchronise",
     "copy",
     "rsync",
-    "folders"
-    "files"
+    "folders",
+    "files",
     "filesystem"
   ]
 }
